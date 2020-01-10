@@ -29,7 +29,7 @@ Environments can be trivially extended by adding entries in src/multiagent_mujoc
 
 ```python
 env_args.scenario="Ant-v2"
-env_args.agent_conf="4x2"
+env_args.agent_conf="2x4"
 env_args.agent_obsk=1
 ```
 
@@ -38,7 +38,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="Ant-v2"
-env_args.agent_conf="4x2d"
+env_args.agent_conf="2x4d"
 env_args.agent_obsk=1
 ```
 
