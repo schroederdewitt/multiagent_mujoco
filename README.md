@@ -16,7 +16,9 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 * *env_args.k_categories*: A string describing which properties are observable at which connection distance as comma-separated lists separated by vertical bars. For example, "qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator|qpos" means k=0 can observe properties qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator and k>=1 (i.e. immediate and more distant neighbours) can be observed through property qpos. Note: If a property requested is not available for a given agent, it will be silently omitted.
 * *env_args.global_categories*: Same as env_args.k_categories, but concerns some global properties that are otherwise not observed by any of the agents. Switched off by default (i.e. agents have no non-local observations).
 
-# Environments
+# Built-in Environments
+
+Environments can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
 ## Ant-v2
 
@@ -44,5 +46,81 @@ env_args.agent_obsk=1
 ```python
 env_args.scenario="Ant-v2"
 env_args.agent_conf="2x4"
+env_args.agent_obsk=1
+```
+## HalfCheetah-v2
+
+### HalfCheetah-v2 2x3
+<img src="./docs/images/half_cheetah_2x3.png" width="200" height="200">
+
+```python
+env_args.scenario="HalfCheetah-v2"
+env_args.agent_conf="2x3"
+env_args.agent_obsk=1
+```
+
+### HalfCheetah-v2 6x1
+<img src="./docs/images/half_cheetah_6x1.png" width="200" height="200">
+
+```python
+env_args.scenario="HalfCheetah-v2"
+env_args.agent_conf="6x1"
+env_args.agent_obsk=1
+```
+
+## Hopper-v2
+
+### Hopper-v2 3x1
+<img src="./docs/images/hopper_3x1.png" width="200" height="200">
+
+```python
+env_args.scenario="Hopper-v2"
+env_args.agent_conf="3x1"
+env_args.agent_obsk=1
+```
+
+## Humanoid-v2
+
+### Humanoid-v2 2x8
+<img src="./docs/images/humanoid_2x8.png" width="200" height="200">
+
+```python
+env_args.scenario="Humanoid-v2"
+env_args.agent_conf="2x8"
+env_args.agent_obsk=1
+```
+
+## HumanoidStandup-v2
+
+### HumanoidStandup-v2 2x8
+<img src="./docs/images/humanoid_standup_2x8.png" width="200" height="200">
+
+```python
+env_args.scenario="HumanoidStandup-v2"
+env_args.agent_conf="2x8"
+env_args.agent_obsk=1
+```
+
+
+## Reacher-v2
+
+### Reacher-v2 2x1
+<img src="./docs/images/reacher_2x1.png" width="200" height="200">
+
+```python
+env_args.scenario="Reacher-v2"
+env_args.agent_conf="2x1"
+env_args.agent_obsk=1
+```
+
+## Swimmer-v2
+
+### Swimmer-v2 2x1
+
+<img src="./docs/images/swimmer_2x1.png" width="200" height="200">
+
+```python
+env_args.scenario="Swimmer-v2"
+env_args.agent_conf="2x1"
 env_args.agent_obsk=1
 ```
