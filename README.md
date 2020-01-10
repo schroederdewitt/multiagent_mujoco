@@ -19,6 +19,7 @@ env_args.agent_obsk=1
 
 ### Ant-v2 2x4 diag
 <img src="./docs/images/ant_2x4_diag.png" width="200" height="200">
+
 ```python
 env_args.scenario="Ant-v2"
 env_args.agent_conf="4x2d"
@@ -27,6 +28,7 @@ env_args.agent_obsk=1
 
 ### Ant-v2 4x2
 <img src="./docs/images/ant_4x2.png" width="200" height="200">
+
 ```python
 env_args.scenario="Ant-v2"
 env_args.agent_conf="2x4"
