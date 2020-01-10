@@ -20,7 +20,7 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 
 Environments can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
-## Ant-v2
+## Multi-Agent Ant-v2
 
 ### Ant-v2 2x4
 <img src="./docs/images/ant_2x4.png" width="200" height="200">
@@ -31,7 +31,7 @@ env_args.agent_conf="4x2"
 env_args.agent_obsk=1
 ```
 
-### Ant-v2 2x4 diag
+### Multi-Agent Ant-v2 2x4 diag
 <img src="./docs/images/ant_2x4_diag.png" width="200" height="200">
 
 ```python
@@ -40,7 +40,7 @@ env_args.agent_conf="4x2d"
 env_args.agent_obsk=1
 ```
 
-### Ant-v2 4x2
+### Multi-Agent Ant-v2 4x2
 <img src="./docs/images/ant_4x2.png" width="200" height="200">
 
 ```python
@@ -48,9 +48,9 @@ env_args.scenario="Ant-v2"
 env_args.agent_conf="2x4"
 env_args.agent_obsk=1
 ```
-## HalfCheetah-v2
+## Multi-Agent HalfCheetah-v2
 
-### HalfCheetah-v2 2x3
+### Multi-Agent HalfCheetah-v2 2x3
 <img src="./docs/images/half_cheetah_2x3.png" width="200" height="200">
 
 ```python
@@ -59,7 +59,7 @@ env_args.agent_conf="2x3"
 env_args.agent_obsk=1
 ```
 
-### HalfCheetah-v2 6x1
+### Multi-Agent HalfCheetah-v2 6x1
 <img src="./docs/images/half_cheetah_6x1.png" width="200" height="200">
 
 ```python
@@ -68,9 +68,9 @@ env_args.agent_conf="6x1"
 env_args.agent_obsk=1
 ```
 
-## Hopper-v2
+## Multi-Agent Hopper-v2
 
-### Hopper-v2 3x1
+### Multi-Agent Hopper-v2 3x1
 <img src="./docs/images/hopper_3x1.png" width="200" height="200">
 
 ```python
@@ -79,9 +79,9 @@ env_args.agent_conf="3x1"
 env_args.agent_obsk=1
 ```
 
-## Humanoid-v2
+## Multi-Agent Humanoid-v2
 
-### Humanoid-v2 2x8
+### Multi-Agent Humanoid-v2 2x8
 <img src="./docs/images/humanoid_2x8.png" width="200" height="200">
 
 ```python
@@ -90,9 +90,9 @@ env_args.agent_conf="2x8"
 env_args.agent_obsk=1
 ```
 
-## HumanoidStandup-v2
+## Multi-Agent HumanoidStandup-v2
 
-### HumanoidStandup-v2 2x8
+### Multi-Agent HumanoidStandup-v2 2x8
 <img src="./docs/images/humanoid_standup_2x8.png" width="200" height="200">
 
 ```python
@@ -102,9 +102,9 @@ env_args.agent_obsk=1
 ```
 
 
-## Reacher-v2
+## Multi-Agent Reacher-v2
 
-### Reacher-v2 2x1
+### Multi-Agent Reacher-v2 2x1
 <img src="./docs/images/reacher_2x1.png" width="200" height="200">
 
 ```python
@@ -113,9 +113,9 @@ env_args.agent_conf="2x1"
 env_args.agent_obsk=1
 ```
 
-## Swimmer-v2
+## Multi-Agent Swimmer-v2
 
-### Swimmer-v2 2x1
+### Multi-Agent Swimmer-v2 2x1
 
 <img src="./docs/images/swimmer_2x1.png" width="200" height="200">
 
