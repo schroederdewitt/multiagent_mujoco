@@ -81,8 +81,8 @@ env_args.agent_obsk=1
 
 ## Multi-Agent Humanoid-v2
 
-### Multi-Agent Humanoid-v2 2x8
-<img src="./docs/images/humanoid_2x8.png" width="200" height="200">
+### Multi-Agent Humanoid-v2 2x[9,8]
+<img src="./docs/images/humanoid_2x[9,8].png" width="200" height="200">
 
 ```python
 env_args.scenario="Humanoid-v2"
@@ -92,8 +92,8 @@ env_args.agent_obsk=1
 
 ## Multi-Agent HumanoidStandup-v2
 
-### Multi-Agent HumanoidStandup-v2 2x8
-<img src="./docs/images/humanoid_standup_2x8.png" width="200" height="200">
+### Multi-Agent HumanoidStandup-v2 2x[9,8]
+<img src="./docs/images/humanoid_standup_2x[9,8].png" width="200" height="200">
 
 ```python
 env_args.scenario="HumanoidStandup-v2"
