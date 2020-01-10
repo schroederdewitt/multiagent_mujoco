@@ -1,4 +1,4 @@
-![#f03c15](Pre-Alpha Release - please contact cs@robots.ox.ac.uk for any questions and file issues if necessary!) 
+![#f03c15](Pre-Alpha Release, please contact cs@robots.ox.ac.uk for any questions and file issues if necessary) 
 
 # Multi-Agent Mujoco
 Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco Gym environments.
