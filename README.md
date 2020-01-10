@@ -5,11 +5,10 @@ Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco G
 ## Ant-v2
 
 ### Ant-v2 2x2
-<img src="./docs/images/ant_2x2.png" width="100" height="100">
-![Ant-v2 2x2](/docs/images/ant_2x2.png)
+<img src="./docs/images/ant_2x2.png" width="200" height="200">
 
 ### Ant-v2 2x2 diag
-![Ant-v2 2x2 diag](/docs/images/ant_2x2_diag.png)
+<img src="./docs/images/ant_2x2_diag.png" width="200" height="200">
 
 ### Ant-v2 4x1
-![Ant-v2 4x1](/docs/images/ant_4x1.png)
+<img src="./docs/images/ant_4x1.png" width="200" height="200">
