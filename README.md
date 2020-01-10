@@ -51,7 +51,7 @@ env_args.agent_obsk=1
 ## Multi-Agent HalfCheetah-v2
 
 ### Multi-Agent HalfCheetah-v2 2x3
-<img src="./docs/images/half_cheetah_2x3.png" width="200" height="200">
+<img src="./docs/images/halfcheetah_2x3.png" width="200" height="200">
 
 ```python
 env_args.scenario="HalfCheetah-v2"
@@ -60,7 +60,7 @@ env_args.agent_obsk=1
 ```
 
 ### Multi-Agent HalfCheetah-v2 6x1
-<img src="./docs/images/half_cheetah_6x1.png" width="200" height="200">
+<img src="./docs/images/halfcheetah_6x1.png" width="200" height="200">
 
 ```python
 env_args.scenario="HalfCheetah-v2"
