@@ -7,7 +7,7 @@ import numpy as np
 
 
 from .multiagentenv import MultiAgentEnv
-import obsk
+from .obsk import get_joints_at_kdist, get_parts_and_edges, build_obs
 
 # using code from https://github.com/ikostrikov/pytorch-ddpg-naf
 class NormalizedActions(gym.ActionWrapper):
@@ -35,7 +35,7 @@ class MujocoMulti(MultiAgentEnv):
         self.scenario = kwargs["env_args"]["scenario"] # e.g. Ant-v2
         self.agent_conf = kwargs["env_args"]["agent_conf"] # e.g. '2x3'
 
-        self.agent_partitions, self.mujoco_edges, self.mujoco_globals  = obsk.get_parts_and_edges(self.scenario,
+        self.agent_partitions, self.mujoco_edges, self.mujoco_globals  = get_parts_and_edges(self.scenario,
                                                                                                   self.agent_conf)
 
         self.n_agents = len(self.agent_partitions)
@@ -64,7 +64,7 @@ class MujocoMulti(MultiAgentEnv):
             self.global_categories = self.global_categories_label.split(",") if self.global_categories_label is not None else []
 
         if self.agent_obsk is not None:
-            self.k_dicts = [obsk.get_joints_at_kdist(agent_id,
+            self.k_dicts = [get_joints_at_kdist(agent_id,
                                                     self.agent_partitions,
                                                     self.mujoco_edges,
                                                     k=self.agent_obsk,
@@ -113,7 +113,7 @@ class MujocoMulti(MultiAgentEnv):
         if self.agent_obsk is None:
             return self.env._get_obs()
         else:
-            return obsk.build_obs(self.env,
+            return build_obs(self.env,
                                   self.k_dicts[agent_id],
                                   self.k_categories,
                                   self.mujoco_globals,
