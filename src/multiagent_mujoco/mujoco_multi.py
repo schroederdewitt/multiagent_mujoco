@@ -6,8 +6,8 @@ import multiagent.scenarios as scenarios
 import numpy as np
 
 
-from envs.multiagentenv import MultiAgentEnv
-from envs.mujoco import obsk
+from .multiagentenv import MultiAgentEnv
+import obsk
 
 # using code from https://github.com/ikostrikov/pytorch-ddpg-naf
 class NormalizedActions(gym.ActionWrapper):
