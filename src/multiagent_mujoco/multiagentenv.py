@@ -10,9 +10,9 @@ class MultiAgentEnv(object):
             args = convert(args)
         self.args = args
 
-        self.seed = getattr(args, "seed", None)
-        self.rs = np.random.RandomState(self.seed) # initialise numpy random state
-
+        if getattr(args, "seed", None) is not None:
+            self.seed = args.seed
+            self.rs = np.random.RandomState(self.seed) # initialise numpy random state
 
     def step(self, actions):
         """ Returns reward, terminated, info """
@@ -66,7 +66,7 @@ class MultiAgentEnv(object):
     def close(self):
         raise NotImplementedError
 
-    def seed(self):
+    def seed(self, seed):
         raise NotImplementedError
 
     def get_env_info(self):

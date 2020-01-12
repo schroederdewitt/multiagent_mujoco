@@ -63,6 +63,8 @@ class MujocoMulti(MultiAgentEnv):
             self.global_categories_label = kwargs["env_args"].get("global_categories")
             self.global_categories = self.global_categories_label.split(",") if self.global_categories_label is not None else []
 
+
+
         if self.agent_obsk is not None:
             self.k_dicts = [get_joints_at_kdist(agent_id,
                                                     self.agent_partitions,
@@ -83,6 +85,17 @@ class MujocoMulti(MultiAgentEnv):
         self.env = self.timelimit_env.env
         self.timelimit_env.reset()
         self.obs_size = self.get_obs_size()
+
+        # COMPATIBILITY
+        self.n = self.n_agents
+        self.observation_space = [Box(low=np.array([-10]*self.n_agents), high=np.array([10]*self.n_agents)) for _ in range(self.n_agents)]
+
+        from gym import spaces
+        acdimjoint = self.env.action_space.low.shape[0]
+        acdim = acdimjoint // self.n_agents
+        self.action_space = tuple([Box(self.env.action_space.low[
+                                   a*acdim:(a+1)*acdim], self.env.action_space.high[
+                                   a*acdim:(a+1)*acdim]) for a in range(self.n_agents)])
 
         pass
 
@@ -166,22 +179,17 @@ class MujocoMulti(MultiAgentEnv):
     def close(self):
         raise NotImplementedError
 
-    def seed(self):
-        raise NotImplementedError
+    def seed(self, args):
+        pass
 
     def get_env_info(self):
-        from gym import spaces
-        acdimjoint = self.env.action_space.low.shape[0]
-        acdim = acdimjoint // self.n_agents
-        action_spaces = tuple([Box(self.env.action_space.low[
-                                   a*acdim:(a+1)*acdim], self.env.action_space.high[
-                                   a*acdim:(a+1)*acdim]) for a in range(self.n_agents)])
+
         env_info = {"state_shape": self.get_state_size(),
                     "obs_shape": self.get_obs_size(),
                     "n_actions": self.get_total_actions(),
                     "n_agents": self.n_agents,
                     "episode_limit": self.episode_limit,
-                    "action_spaces": action_spaces,
+                    "action_spaces": self.action_space,
                     "actions_dtype": np.float32,
                     "normalise_actions": False
                     }
