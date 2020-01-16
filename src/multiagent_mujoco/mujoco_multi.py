@@ -36,7 +36,7 @@ class MujocoMulti(MultiAgentEnv):
         self.agent_conf = kwargs["env_args"]["agent_conf"] # e.g. '2x3'
 
         self.agent_partitions, self.mujoco_edges, self.mujoco_globals  = get_parts_and_edges(self.scenario,
-                                                                                                  self.agent_conf)
+                                                                                             self.agent_conf)
 
         self.n_agents = len(self.agent_partitions)
         self.n_actions = max([len(l) for l in self.agent_partitions])
@@ -172,6 +172,7 @@ class MujocoMulti(MultiAgentEnv):
         """ Returns initial observations and states"""
         self.steps = 0
         self.timelimit_env.reset()
+        return self.get_obs()
 
     def render(self, **kwargs):
         self.env.render(**kwargs)

@@ -3,13 +3,14 @@ import numpy as np
 
 
 class Node():
-    def __init__(self, label, qpos_ids, qvel_ids, act_ids, bodies=None, extra_obs=None):
+    def __init__(self, label, qpos_ids, qvel_ids, act_ids, body_fn=None, bodies=None, extra_obs=None):
         self.label = label
         self.qpos_ids = qpos_ids
         self.qvel_ids = qvel_ids
         self.act_ids = act_ids
         self.bodies = bodies
         self.extra_obs = {} if extra_obs is None else extra_obs
+        self.body_fn = body_fn
         pass
 
     def __str__(self):
@@ -109,7 +110,9 @@ def build_obs(env, k_dict, k_categories, global_dict, global_categories, vec_len
                                 if c not in body_set_dict:
                                     body_set_dict[c] = set()
                                 if b not in body_set_dict[c]:
-                                    obs_lst.extend(getattr(env.sim.data, c)[b].tolist())
+                                    items = getattr(env.sim.data, c)[b].tolist()
+                                    items = getattr(_t, "body_fn", lambda _id,x:x)(b, items)
+                                    obs_lst.extend(items if isinstance(items, list) else [items])
                                     body_set_dict[c].add(b)
     # Add global attributes
     body_set_dict = {}
@@ -188,22 +191,23 @@ def get_parts_and_edges(label, partitioning):
         aux_4 = 12
         ankle_4 = 13
 
-        hip1 = Node("hip1", -8, -8, 2, bodies=[torso, front_left_leg],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-8], -1, 1)})
-        ankle1 = Node("ankle1", -7, -7, 3, bodies=[front_left_leg, aux_1, ankle_1],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-7], -1, 1)})
-        hip2 = Node("hip2", -6, -6, 4, bodies=[torso, front_right_leg],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-6], -1, 1)})
-        ankle2 = Node("ankle2", -5, -5, 5, bodies=[front_left_leg, aux_2, ankle_2],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-5], -1, 1)})
-        hip3 = Node("hip3", -4, -4, 6, bodies=[torso, back_leg],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-4], -1, 1)})
-        ankle3 = Node("ankle3", -3, -3, 7, bodies=[back_leg, aux_3, ankle_3],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-3], -1, 1)})
-        hip4 = Node("hip4", -2, -2, 0, bodies=[torso, right_back_leg],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-2], -1, 1)})
-        ankle4 = Node("ankle4", -1, -1, 1, bodies=[right_back_leg, aux_4, ankle_4],
-                    extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-1], -1, 1)})
+        hip1 = Node("hip1", -8, -8, 2, bodies=[torso, front_left_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist()) #
+        #            ,extra_obs={"cfrc_ext": lambda env: np.clip(np.concatenate([env.sim.data.cfrc_ext[torso],
+        #                                                                       env.sim.data.cfrc_ext[front_left_leg]]), -1, 1)})
+        ankle1 = Node("ankle1", -7, -7, 3, bodies=[front_left_leg, aux_1, ankle_1], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-7], -1, 1)})
+        hip2 = Node("hip2", -6, -6, 4, bodies=[torso, front_right_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-6], -1, 1)})
+        ankle2 = Node("ankle2", -5, -5, 5, bodies=[front_right_leg, aux_2, ankle_2], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-5], -1, 1)})
+        hip3 = Node("hip3", -4, -4, 6, bodies=[torso, back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-4], -1, 1)})
+        ankle3 = Node("ankle3", -3, -3, 7, bodies=[back_leg, aux_3, ankle_3], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-3], -1, 1)})
+        hip4 = Node("hip4", -2, -2, 0, bodies=[torso, right_back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-2], -1, 1)})
+        ankle4 = Node("ankle4", -1, -1, 1, bodies=[right_back_leg, aux_4, ankle_4], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-1], -1, 1)})
 
         edges = [HyperEdge(ankle4, hip4),
                  HyperEdge(ankle1, hip1),
