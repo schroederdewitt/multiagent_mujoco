@@ -109,3 +109,11 @@ env_args.scenario="Swimmer-v2"
 env_args.agent_conf="2x1"
 env_args.agent_obsk=1
 ```
+
+### 2-Agent Walker
+
+```python
+env_args.scenario="Walker-v2"
+env_args.agent_conf="2x1"
+env_args.agent_obsk=1
+```
