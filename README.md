@@ -1,9 +1,11 @@
 ```diff
-- Pre-Alpha Release, please contact cs@robots.ox.ac.uk for any questions and file issues if necessary
+-  Please contact cs@robots.ox.ac.uk for any questions and file issues if necessary
 ```
 
 # Multi-Agent Mujoco
 Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco Gym environments.
+
+Used e.g. in the paper 
 
 # Installation
 
@@ -20,9 +22,11 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 * *env_args.k_categories*: A string describing which properties are observable at which connection distance as comma-separated lists separated by vertical bars. For example, "qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator|qpos" means k=0 can observe properties qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator and k>=1 (i.e. immediate and more distant neighbours) can be observed through property qpos. Note: If a property requested is not available for a given agent, it will be silently omitted.
 * *env_args.global_categories*: Same as env_args.k_categories, but concerns some global properties that are otherwise not observed by any of the agents. Switched off by default (i.e. agents have no non-local observations).
 
-# Built-in Environments
+# Built-in Tasks 
 
-Environments can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
+Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
+
+<img src="./docs/images/mamajuco.png" width="200" height="200">
 
 ## Multi-Agent Ant-v2
 
