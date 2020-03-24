@@ -26,12 +26,11 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 
 Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
-<img src="./docs/images/mamajuco.png" width="200" height="200">
+<img src="./docs/images/mamajuco.png" width="400" height="200">
 
-## Multi-Agent Ant-v2
+## Task configuration
 
-### Ant-v2 2x4
-<img src="./docs/images/ant_2x4.png" width="200" height="200">
+### 2-Agent Ant
 
 ```python
 env_args.scenario="Ant-v2"
@@ -39,7 +38,7 @@ env_args.agent_conf="2x4"
 env_args.agent_obsk=1
 ```
 
-### Multi-Agent Ant-v2 2x4 diag
+### 2-Agent Ant Diag
 <img src="./docs/images/ant_2x4_diag.png" width="200" height="200">
 
 ```python
@@ -48,18 +47,15 @@ env_args.agent_conf="2x4d"
 env_args.agent_obsk=1
 ```
 
-### Multi-Agent Ant-v2 4x2
-<img src="./docs/images/ant_4x2.png" width="200" height="200">
+### 4-Agent Ant
 
 ```python
 env_args.scenario="Ant-v2"
 env_args.agent_conf="2x4"
 env_args.agent_obsk=1
 ```
-## Multi-Agent HalfCheetah-v2
 
-### Multi-Agent HalfCheetah-v2 2x3
-<img src="./docs/images/halfcheetah_2x3.png" width="200" height="200">
+### 2-Agent HalfCheetah
 
 ```python
 env_args.scenario="HalfCheetah-v2"
@@ -67,8 +63,7 @@ env_args.agent_conf="2x3"
 env_args.agent_obsk=1
 ```
 
-### Multi-Agent HalfCheetah-v2 6x1
-<img src="./docs/images/halfcheetah_6x1.png" width="200" height="200">
+### 6-Agent HalfCheetah
 
 ```python
 env_args.scenario="HalfCheetah-v2"
@@ -76,10 +71,7 @@ env_args.agent_conf="6x1"
 env_args.agent_obsk=1
 ```
 
-## Multi-Agent Hopper-v2
-
-### Multi-Agent Hopper-v2 3x1
-<img src="./docs/images/hopper_3x1.png" width="200" height="200">
+### 3-Agent Hopper
 
 ```python
 env_args.scenario="Hopper-v2"
@@ -87,10 +79,7 @@ env_args.agent_conf="3x1"
 env_args.agent_obsk=1
 ```
 
-## Multi-Agent Humanoid-v2
-
-### Multi-Agent Humanoid-v2 2x[9,8]
-<img src="./docs/images/humanoid_2x[9,8].png" width="200" height="200">
+### 2-Agent Humanoid
 
 ```python
 env_args.scenario="Humanoid-v2"
@@ -98,10 +87,7 @@ env_args.agent_conf="2x8"
 env_args.agent_obsk=1
 ```
 
-## Multi-Agent HumanoidStandup-v2
-
-### Multi-Agent HumanoidStandup-v2 2x[9,8]
-<img src="./docs/images/humanoid_standup_2x[9,8].png" width="200" height="200">
+### 2-Agent HumanoidStandup
 
 ```python
 env_args.scenario="HumanoidStandup-v2"
@@ -109,11 +95,7 @@ env_args.agent_conf="2x8"
 env_args.agent_obsk=1
 ```
 
-
-## Multi-Agent Reacher-v2
-
-### Multi-Agent Reacher-v2 2x1
-<img src="./docs/images/reacher_2x1.png" width="200" height="200">
+### 2-Agent Reacher
 
 ```python
 env_args.scenario="Reacher-v2"
@@ -121,11 +103,7 @@ env_args.agent_conf="2x1"
 env_args.agent_obsk=1
 ```
 
-## Multi-Agent Swimmer-v2
-
-### Multi-Agent Swimmer-v2 2x1
-
-<img src="./docs/images/swimmer_2x1.png" width="200" height="200">
+### 2-Agent Swimmer
 
 ```python
 env_args.scenario="Swimmer-v2"
