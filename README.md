@@ -26,7 +26,7 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 
 Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
-<img src="./docs/images/mamajuco.png" width="400" height="200">
+<img src="./docs/images/mamajuco.png" width="400" height="300">
 
 ## Task configuration
 
@@ -39,7 +39,6 @@ env_args.agent_obsk=1
 ```
 
 ### 2-Agent Ant Diag
-<img src="./docs/images/ant_2x4_diag.png" width="200" height="200">
 
 ```python
 env_args.scenario="Ant-v2"
