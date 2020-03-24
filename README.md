@@ -26,7 +26,7 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 
 Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
-<img src="https://github.com/schroederdewitt/multiagent_mujoco/blob/master/docs/images/mamujoco.png" width="700" height="300">
+<img src="https://github.com/schroederdewitt/multiagent_mujoco/blob/master/docs/images/mamujoco.png" width="900" height="384">
 
 ## Task configuration
 
