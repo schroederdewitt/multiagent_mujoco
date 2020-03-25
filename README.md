@@ -1,5 +1,6 @@
 ```diff
--  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions and file issues if necessary
+-  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions
+-  Issues? Please file them here. Thanks :)
 ```
 
 # Multi-Agent Mujoco
