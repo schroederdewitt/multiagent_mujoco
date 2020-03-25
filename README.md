@@ -1,11 +1,11 @@
 ```diff
--  Please contact cs@robots.ox.ac.uk for any questions and file issues if necessary
+-  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions and file issues if necessary
 ```
 
 # Multi-Agent Mujoco
 Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco Gym environments.
 
-Used e.g. in the paper 
+Used e.g. in the paper [Deep Multi-Agent Reinforcement Learning for Decentralized Continuous Cooperative Control](https://arxiv.org/abs/2003.06709) by Christian Schroeder de Witt, Bei Peng, Pierre-Alexandre Kamienny, Philip Torr, Wendelin Böhmer and Shimon Whiteson, Torr Vision Group and Whiteson Research Lab, University of Oxford, 2020
 
 # Installation
 
