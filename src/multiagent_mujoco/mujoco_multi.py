@@ -195,26 +195,3 @@ class MujocoMulti(MultiAgentEnv):
                     "normalise_actions": False
                     }
         return env_info
-
-if __name__ == "__main__":
-    bthigh = Node("bthigh", 3, 12)
-    bshin = Node("bshin", 4, 13)
-    bfoot = Node("bfoot", 5, 14)
-    fthigh = Node("fthigh", 6, 15)
-    fshin = Node("fshin", 7, 16)
-    ffoot = Node("ffoot", 8, 17)
-
-    edges = [Edge(bfoot, bshin),
-             Edge(bshin, bthigh),
-             Edge(bthigh, fthigh),
-             Edge(fthigh, fshin),
-             Edge(fshin, ffoot)]
-
-    agent_partition = [(bfoot, bshin, bthigh),
-                       (ffoot, fshin, fthigh)]
-
-    obslen = 10
-    qpos = np.arange(20)
-    qvel = np.arange(20)
-    nobs = get_nearest_obs(1, agent_partition, edges, obslen, qpos, qvel, k=1)
-    print(nobs)
