@@ -356,6 +356,7 @@ def get_parts_and_edges(label, partitioning):
         joint1 = Node("rot3", -1, -1, 1)
 
         edges = [HyperEdge(joint0, joint1)]
+        globals = {}
 
         if partitioning == "2x1":
             # isolate upper and lower body
@@ -365,7 +366,7 @@ def get_parts_and_edges(label, partitioning):
         else:
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
-        return parts, edges
+        return parts, edges, globals
 
     elif label in ["Walker2d-v2"]:
 
@@ -383,6 +384,7 @@ def get_parts_and_edges(label, partitioning):
                  HyperEdge(leg_left_joint, thigh_left_joint),
                  HyperEdge(thigh_joint, thigh_left_joint)
                  ]
+        globals = {}
 
         if partitioning == "2x3":
             # isolate upper and lower body
@@ -393,7 +395,7 @@ def get_parts_and_edges(label, partitioning):
         else:
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
-        return parts, edges
+        return parts, edges, globals
 
     elif label in ["coupled_half_cheetah"]:
 
@@ -410,6 +412,7 @@ def get_parts_and_edges(label, partitioning):
                  HyperEdge(bthigh, fthigh),
                  HyperEdge(fthigh, fshin),
                  HyperEdge(fshin, ffoot)]
+        globals = {}
 
         root_x = Node("root_x", 0, 0, -1,
                       extra_obs={"qpos": lambda env: np.array([])})
@@ -423,4 +426,4 @@ def get_parts_and_edges(label, partitioning):
         else:
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
-        return parts, edges
+        return parts, edges, globals

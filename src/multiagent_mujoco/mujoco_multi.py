@@ -1,9 +1,11 @@
 from copy import deepcopy
+from functools import partial
 import gym
 from gym.spaces import Box
 from multiagent.environment import MultiAgentEnv as OpenAIMultiAgentEnv
 import multiagent.scenarios as scenarios
 import numpy as np
+from gym.wrappers import TimeLimit
 
 
 from .multiagentenv import MultiAgentEnv
@@ -79,9 +81,9 @@ class MujocoMulti(MultiAgentEnv):
         if self.env_version == 2:
             try:
                 self.wrapped_env = NormalizedActions(gym.make(self.scenario))
-            except Exception as e:
+            except gym.error.Error:
                 from envs import REGISTRY as env_REGISTRY
-                self.wrapped_env = NormalizedActions(env_REGISTRY[self.args.env](self.args.env_args))
+                self.wrapped_env = NormalizedActions(TimeLimit(partial(env_REGISTRY[self.scenario],**kwargs["env_args"])(), max_episode_steps=self.episode_limit))
         else:
             assert False,  "not implemented!"
         self.timelimit_env = self.wrapped_env.env
