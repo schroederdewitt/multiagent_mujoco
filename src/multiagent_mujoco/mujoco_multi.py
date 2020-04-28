@@ -67,17 +67,21 @@ class MujocoMulti(MultiAgentEnv):
 
         if self.agent_obsk is not None:
             self.k_dicts = [get_joints_at_kdist(agent_id,
-                                                    self.agent_partitions,
-                                                    self.mujoco_edges,
-                                                    k=self.agent_obsk,
-                                                    kagents=False,) for agent_id in range(self.n_agents)]
+                                                self.agent_partitions,
+                                                self.mujoco_edges,
+                                                k=self.agent_obsk,
+                                                kagents=False,) for agent_id in range(self.n_agents)]
 
         # load scenario from script
         self.episode_limit = self.args.episode_limit
 
         self.env_version = kwargs["env_args"].get("env_version", 2)
         if self.env_version == 2:
-            self.wrapped_env = NormalizedActions(gym.make(self.scenario))
+            try:
+                self.wrapped_env = NormalizedActions(gym.make(self.scenario))
+            except Exception as e:
+                from envs import REGISTRY as env_REGISTRY
+                self.wrapped_env = NormalizedActions(env_REGISTRY[self.args.env](self.args.env_args))
         else:
             assert False,  "not implemented!"
         self.timelimit_env = self.wrapped_env.env

@@ -394,3 +394,33 @@ def get_parts_and_edges(label, partitioning):
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
         return parts, edges
+
+    elif label in ["coupled_half_cheetah"]:
+
+        # define Mujoco graph
+        bthigh = Node("bthigh", -6, -6, 0)
+        bshin = Node("bshin", -5, -5, 1)
+        bfoot = Node("bfoot", -4, -4, 2)
+        fthigh = Node("fthigh", -3, -3, 3)
+        fshin = Node("fshin", -2, -2, 4)
+        ffoot = Node("ffoot", -1, -1, 5)
+
+        edges = [HyperEdge(bfoot, bshin),
+                 HyperEdge(bshin, bthigh),
+                 HyperEdge(bthigh, fthigh),
+                 HyperEdge(fthigh, fshin),
+                 HyperEdge(fshin, ffoot)]
+
+        root_x = Node("root_x", 0, 0, -1,
+                      extra_obs={"qpos": lambda env: np.array([])})
+        root_z = Node("root_z", 1, 1, -1)
+        root_y = Node("root_y", 2, 2, -1)
+        globals = {"joints":[root_x, root_y, root_z]}
+
+        if partitioning == "1p1":
+            parts = [(bfoot, bshin, bthigh),
+                     (ffoot, fshin, fthigh)]
+        else:
+            raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
+
+        return parts, edges
