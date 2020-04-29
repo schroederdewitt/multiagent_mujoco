@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Node():
-    def __init__(self, label, qpos_ids, qvel_ids, act_ids, body_fn=None, bodies=None, extra_obs=None):
+    def __init__(self, label, qpos_ids, qvel_ids, act_ids, body_fn=None, bodies=None, extra_obs=None, tendons=None):
         self.label = label
         self.qpos_ids = qpos_ids
         self.qvel_ids = qvel_ids
@@ -11,6 +11,7 @@ class Node():
         self.bodies = bodies
         self.extra_obs = {} if extra_obs is None else extra_obs
         self.body_fn = body_fn
+        self.tendons = tendons
         pass
 
     def __str__(self):
@@ -114,13 +115,14 @@ def build_obs(env, k_dict, k_categories, global_dict, global_categories, vec_len
                                     items = getattr(_t, "body_fn", lambda _id,x:x)(b, items)
                                     obs_lst.extend(items if isinstance(items, list) else [items])
                                     body_set_dict[c].add(b)
+
     # Add global attributes
     body_set_dict = {}
     for c in global_categories:
         if c in ["qvel", "qpos"]:  # this is a "joint position" item
             for j in global_dict.get("joints", []):
                 items = getattr(env.sim.data, c)[getattr(j, "{}_ids".format(c))]
-                obs_lst.extend(ids if isinstance(items, list) else [items])
+                obs_lst.extend(items if isinstance(items, list) else [items])
         else:
             for b in global_dict.get("bodies", []):
                 if c not in body_set_dict:
@@ -192,22 +194,13 @@ def get_parts_and_edges(label, partitioning):
         ankle_4 = 13
 
         hip1 = Node("hip1", -8, -8, 2, bodies=[torso, front_left_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist()) #
-        #            ,extra_obs={"cfrc_ext": lambda env: np.clip(np.concatenate([env.sim.data.cfrc_ext[torso],
-        #                                                                       env.sim.data.cfrc_ext[front_left_leg]]), -1, 1)})
         ankle1 = Node("ankle1", -7, -7, 3, bodies=[front_left_leg, aux_1, ankle_1], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-7], -1, 1)})
         hip2 = Node("hip2", -6, -6, 4, bodies=[torso, front_right_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-6], -1, 1)})
         ankle2 = Node("ankle2", -5, -5, 5, bodies=[front_right_leg, aux_2, ankle_2], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-5], -1, 1)})
         hip3 = Node("hip3", -4, -4, 6, bodies=[torso, back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-4], -1, 1)})
         ankle3 = Node("ankle3", -3, -3, 7, bodies=[back_leg, aux_3, ankle_3], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-3], -1, 1)})
         hip4 = Node("hip4", -2, -2, 0, bodies=[torso, right_back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-2], -1, 1)})
         ankle4 = Node("ankle4", -1, -1, 1, bodies=[right_back_leg, aux_4, ankle_4], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
-                    #extra_obs={"cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[-1], -1, 1)})
 
         edges = [HyperEdge(ankle4, hip4),
                  HyperEdge(ankle1, hip1),
@@ -400,18 +393,42 @@ def get_parts_and_edges(label, partitioning):
     elif label in ["coupled_half_cheetah"]:
 
         # define Mujoco graph
-        bthigh = Node("bthigh", -6, -6, 0)
+        tendon = 0
+
+        bthigh = Node("bthigh", -6, -6, 0,
+                     tendons=[tendon],
+                     extra_obs = {"ten_J": lambda env: env.sim.data.ten_J[tendon],
+                                  "ten_length": lambda env: env.sim.data.ten_length,
+                                  "ten_velocity": lambda env: env.sim.data.ten_velocity})
         bshin = Node("bshin", -5, -5, 1)
         bfoot = Node("bfoot", -4, -4, 2)
         fthigh = Node("fthigh", -3, -3, 3)
         fshin = Node("fshin", -2, -2, 4)
         ffoot = Node("ffoot", -1, -1, 5)
 
+        bthigh2 = Node("bthigh2", -6, -6, 0,
+                      tendons=[tendon],
+                      extra_obs={"ten_J": lambda env: env.sim.data.ten_J[tendon],
+                                 "ten_length": lambda env: env.sim.data.ten_length,
+                                 "ten_velocity": lambda env: env.sim.data.ten_velocity})
+        bshin2 = Node("bshin2", -5, -5, 1)
+        bfoot2 = Node("bfoot2", -4, -4, 2)
+        fthigh2 = Node("fthigh2", -3, -3, 3)
+        fshin2 = Node("fshin2", -2, -2, 4)
+        ffoot2 = Node("ffoot2", -1, -1, 5)
+
+
         edges = [HyperEdge(bfoot, bshin),
                  HyperEdge(bshin, bthigh),
                  HyperEdge(bthigh, fthigh),
                  HyperEdge(fthigh, fshin),
-                 HyperEdge(fshin, ffoot)]
+                 HyperEdge(fshin, ffoot),
+                 HyperEdge(bfoot2, bshin2),
+                 HyperEdge(bshin2, bthigh2),
+                 HyperEdge(bthigh2, fthigh2),
+                 HyperEdge(fthigh2, fshin2),
+                 HyperEdge(fshin2, ffoot2)
+                 ]
         globals = {}
 
         root_x = Node("root_x", 0, 0, -1,
@@ -421,8 +438,9 @@ def get_parts_and_edges(label, partitioning):
         globals = {"joints":[root_x, root_y, root_z]}
 
         if partitioning == "1p1":
-            parts = [(bfoot, bshin, bthigh),
-                     (ffoot, fshin, fthigh)]
+            parts = [(bfoot, bshin, bthigh, ffoot, fshin, fthigh),
+                     (bfoot2, bshin2, bthigh2, ffoot2, fshin2, fthigh2)
+                     ]
         else:
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
