@@ -16,7 +16,7 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 
 # Example
 
-```
+```python
 from src.multiagent_mujoco.mujoco_multi import MujocoMulti
 import numpy as np
 import time
