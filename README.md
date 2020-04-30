@@ -16,7 +16,7 @@ Simply clone this repository and put ./src on your PYTHONPATH.
 To render, please also set the following environment variables:
 
 ```
-LD_LIBRARY_PATH=/home/cs/.mujoco/mujoco200/bin;
+LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco200/bin;
 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
 ```
 
