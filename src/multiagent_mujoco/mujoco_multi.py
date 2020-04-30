@@ -1,12 +1,8 @@
-from copy import deepcopy
 from functools import partial
 import gym
 from gym.spaces import Box
-from multiagent.environment import MultiAgentEnv as OpenAIMultiAgentEnv
-import multiagent.scenarios as scenarios
-import numpy as np
 from gym.wrappers import TimeLimit
-
+import numpy as np
 
 from .multiagentenv import MultiAgentEnv
 from .obsk import get_joints_at_kdist, get_parts_and_edges, build_obs

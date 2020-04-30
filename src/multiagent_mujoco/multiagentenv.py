@@ -1,5 +1,9 @@
-from utils.dict2namedtuple import convert
+from collections import namedtuple
 import numpy as np
+
+
+def convert(dictionary):
+    return namedtuple('GenericDict', dictionary.keys())(**dictionary)
 
 class MultiAgentEnv(object):
 

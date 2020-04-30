@@ -1,7 +1,6 @@
 import itertools
 import numpy as np
 
-
 class Node():
     def __init__(self, label, qpos_ids, qvel_ids, act_ids, body_fn=None, bodies=None, extra_obs=None, tendons=None):
         self.label = label
