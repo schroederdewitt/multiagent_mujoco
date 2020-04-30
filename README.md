@@ -11,6 +11,7 @@ Described in the paper [Deep Multi-Agent Reinforcement Learning for Decentralize
 # Installation
 
 **Note: You require OpenAI Gym Version 10.8.0 and Mujoco 2.0**
+
 Simply clone this repository and put ./src on your PYTHONPATH.
 
 # Example
