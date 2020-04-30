@@ -13,6 +13,12 @@ Described in the paper [Deep Multi-Agent Reinforcement Learning for Decentralize
 **Note: You require OpenAI Gym Version 10.8.0 and Mujoco 2.0**
 
 Simply clone this repository and put ./src on your PYTHONPATH.
+To render, please also set the following environment variables:
+
+```
+LD_LIBRARY_PATH=/home/cs/.mujoco/mujoco200/bin;
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
+```
 
 # Example
 
