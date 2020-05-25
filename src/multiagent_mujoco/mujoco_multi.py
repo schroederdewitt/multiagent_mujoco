@@ -11,7 +11,7 @@ from .obsk import get_joints_at_kdist, get_parts_and_edges, build_obs
 class NormalizedActions(gym.ActionWrapper):
 
     def _action(self, action):
-        action = (action + 1) / 2  # [-1, 1] => [0, 1]
+        action = (action + 1) / 2
         action *= (self.action_space.high - self.action_space.low)
         action += self.action_space.low
         return action
@@ -94,17 +94,15 @@ class MujocoMulti(MultiAgentEnv):
         self.n = self.n_agents
         self.observation_space = [Box(low=np.array([-10]*self.n_agents), high=np.array([10]*self.n_agents)) for _ in range(self.n_agents)]
 
-        from gym import spaces
-        acdimjoint = self.env.action_space.low.shape[0]
-        acdim = acdimjoint // self.n_agents
-        self.action_space = tuple([Box(self.env.action_space.low[
-                                   a*acdim:(a+1)*acdim], self.env.action_space.high[
-                                   a*acdim:(a+1)*acdim]) for a in range(self.n_agents)])
-
+        acdims = [len(ap) for ap in self.agent_partitions]
+        self.action_space = tuple([Box(self.env.action_space.low[sum(acdims[:a]):sum(acdims[:a+1])],
+                                       self.env.action_space.high[sum(acdims[:a]):sum(acdims[:a+1])]) for a in range(self.n_agents)])
         pass
 
     def step(self, actions):
-        flat_actions = np.concatenate([actions[i] for i in range(self.n_agents)])
+
+        # need to remove dummy actions that arise due to unequal action vector sizes across agents
+        flat_actions = np.concatenate([actions[i][:self.action_space[i].low.shape[0]] for i in range(self.n_agents)])
         obs_n, reward_n, done_n, info_n = self.wrapped_env.step(flat_actions)
         self.steps += 1
 

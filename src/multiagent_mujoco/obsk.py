@@ -292,7 +292,9 @@ def get_parts_and_edges(label, partitioning):
                  HyperEdge(abdomen_x, abdomen_y, abdomen_z, right_hip_x, right_hip_y, right_hip_z),
                  ]
 
-        if partitioning == "2x8": # 17 in total, so one action is a dummy (to be handled by pymarl)
+        globals = {}
+
+        if partitioning == "9|8": # 17 in total, so one action is a dummy (to be handled by pymarl)
             # isolate upper and lower body
             parts = [(left_shoulder1, left_shoulder2, abdomen_x, abdomen_y, abdomen_z,
                       right_shoulder1, right_shoulder2,
@@ -305,7 +307,7 @@ def get_parts_and_edges(label, partitioning):
         else:
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
-        return parts, edges
+        return parts, edges, globals
 
     elif label in ["Reacher-v2"]:
 
