@@ -109,7 +109,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="Ant-v2"
-env_args.agent_conf="2x4"
+env_args.agent_conf="4x2"
 env_args.agent_obsk=1
 ```
 
@@ -172,7 +172,7 @@ env_args.agent_obsk=1
 ### 2-Agent Walker
 
 ```python
-env_args.scenario="Walker-v2"
-env_args.agent_conf="2x1"
+env_args.scenario="Walker2d-v2"
+env_args.agent_conf="2x3
 env_args.agent_obsk=1
 ```
