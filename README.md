@@ -141,7 +141,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="Humanoid-v2"
-env_args.agent_conf="9,8"
+env_args.agent_conf="9|8"
 env_args.agent_obsk=1
 ```
 
@@ -149,7 +149,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="HumanoidStandup-v2"
-env_args.agent_conf="9,8"
+env_args.agent_conf="9|8"
 env_args.agent_obsk=1
 ```
 
