@@ -1,10 +1,6 @@
 ```diff
-+  New Addition: Multi-Agent Mujoco now supports Scenarios with Coupled Robots (using Tendons). Check out instructions below.
-```
-
-```diff
--  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions
--  Issues? Please file them here. Thanks :)
++ New Addition: Multi-Agent Mujoco now supports Scenarios with Coupled Robots (using Tendons). 
++ Check out instructions below.
 ```
 
 ```diff
@@ -98,6 +94,8 @@ Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.
 
 ## Task configuration
 
+Unless stated otherwise, all the parameters given below are to be used with ```.multiagent_mujoco.MujocoMulti```.
+
 ### 2-Agent Ant
 
 ```python
@@ -185,3 +183,16 @@ env_args.scenario="Walker2d-v2"
 env_args.agent_conf="2x3
 env_args.agent_obsk=1
 ```
+### Coupled HalfCheetah (NEW!)
+
+```python
+env_args.scenario="coupled_half_cheetah"
+env_args.agent_conf="2x3
+env_args.agent_obsk=1
+```
+
+```CoupledHalfCheetah``` features two separate HalfCheetah agents coupled by an elastic tendon. You can add more tendons or novel coupled scenarios by 
+
+1. Creating a new Gym environment to define the reward function of the coupled scenario (consult ```coupled_half_cheetah.py```)
+2. Create a new Mujoco environment XML file to insert agents and tendons (see ```assets/coupled_half_cheetah.xml```)
+3. Register your env as a scenario in the MujocoMulti environment (only if you need special default observability params)
