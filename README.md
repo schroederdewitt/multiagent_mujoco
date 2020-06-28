@@ -1,4 +1,13 @@
 ```diff
++  New Addition: Multi-Agent Mujoco now supports Scenarios with Coupled Robots (using Tendons). Check out instructions below.
+```
+
+```diff
+-  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions
+-  Issues? Please file them here. Thanks :)
+```
+
+```diff
 -  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions
 -  Issues? Please file them here. Thanks :)
 ```
