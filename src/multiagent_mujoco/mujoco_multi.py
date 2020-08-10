@@ -64,7 +64,6 @@ class MujocoMulti(MultiAgentEnv):
             self.global_categories = self.global_categories_label.split(",") if self.global_categories_label is not None else []
 
 
-
         if self.agent_obsk is not None:
             self.k_dicts = [get_joints_at_kdist(agent_id,
                                                 self.agent_partitions,

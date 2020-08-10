@@ -446,3 +446,23 @@ def get_parts_and_edges(label, partitioning):
             raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
 
         return parts, edges, globals
+
+    elif label in ["manyagent_swimmer"]:
+
+        # Generate asset file
+        try:
+            n_agents = int(partitioning.split("x")[0])
+            n_segs_per_agents = int(partitioning.split("x")[1])
+            n_segs = n_agents * n_segs_per_agents
+        except Exception as e:
+            raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
+
+        # Note: Default Swimmer corresponds to n_segs = 3
+
+        # define Mujoco-Graph
+        joints = [Node("rot{:d}".format(i), -n_segs + i, -n_segs + i, i) for i in range(0, n_segs)]
+        edges = [HyperEdge(joints[i], joints[i+1]) for i in range(n_segs-1)]
+        globals = {}
+
+        parts = [tuple(joints[i * n_segs_per_agents:(i + 1) * n_segs_per_agents]) for i in range(n_agents)]
+        return parts, edges, globals

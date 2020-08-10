@@ -1,0 +1,62 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="49">
+            <item index="0" class="java.lang.String" itemvalue="absl-py" />
+            <item index="1" class="java.lang.String" itemvalue="protobuf" />
+            <item index="2" class="java.lang.String" itemvalue="pygame" />
+            <item index="3" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="4" class="java.lang.String" itemvalue="atomicwrites" />
+            <item index="5" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="6" class="java.lang.String" itemvalue="jsonpickle" />
+            <item index="7" class="java.lang.String" itemvalue="py" />
+            <item index="8" class="java.lang.String" itemvalue="cycler" />
+            <item index="9" class="java.lang.String" itemvalue="torchvision" />
+            <item index="10" class="java.lang.String" itemvalue="docopt" />
+            <item index="11" class="java.lang.String" itemvalue="certifi" />
+            <item index="12" class="java.lang.String" itemvalue="sk-video" />
+            <item index="13" class="java.lang.String" itemvalue="pyparsing" />
+            <item index="14" class="java.lang.String" itemvalue="munch" />
+            <item index="15" class="java.lang.String" itemvalue="wrapt" />
+            <item index="16" class="java.lang.String" itemvalue="kiwisolver" />
+            <item index="17" class="java.lang.String" itemvalue="attrs" />
+            <item index="18" class="java.lang.String" itemvalue="imageio" />
+            <item index="19" class="java.lang.String" itemvalue="portpicker" />
+            <item index="20" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="21" class="java.lang.String" itemvalue="mock" />
+            <item index="22" class="java.lang.String" itemvalue="enum34" />
+            <item index="23" class="java.lang.String" itemvalue="idna" />
+            <item index="24" class="java.lang.String" itemvalue="pbr" />
+            <item index="25" class="java.lang.String" itemvalue="more-itertools" />
+            <item index="26" class="java.lang.String" itemvalue="pluggy" />
+            <item index="27" class="java.lang.String" itemvalue="mpyq" />
+            <item index="28" class="java.lang.String" itemvalue="snakeviz" />
+            <item index="29" class="java.lang.String" itemvalue="smac" />
+            <item index="30" class="java.lang.String" itemvalue="numpy" />
+            <item index="31" class="java.lang.String" itemvalue="requests" />
+            <item index="32" class="java.lang.String" itemvalue="websocket-client" />
+            <item index="33" class="java.lang.String" itemvalue="whichcraft" />
+            <item index="34" class="java.lang.String" itemvalue="pysc2" />
+            <item index="35" class="java.lang.String" itemvalue="urllib3" />
+            <item index="36" class="java.lang.String" itemvalue="probscale" />
+            <item index="37" class="java.lang.String" itemvalue="s2clientprotocol" />
+            <item index="38" class="java.lang.String" itemvalue="sacred" />
+            <item index="39" class="java.lang.String" itemvalue="scipy" />
+            <item index="40" class="java.lang.String" itemvalue="six" />
+            <item index="41" class="java.lang.String" itemvalue="tornado" />
+            <item index="42" class="java.lang.String" itemvalue="pytest" />
+            <item index="43" class="java.lang.String" itemvalue="torch" />
+            <item index="44" class="java.lang.String" itemvalue="pathlib2" />
+            <item index="45" class="java.lang.String" itemvalue="tensorboard-logger" />
+            <item index="46" class="java.lang.String" itemvalue="chardet" />
+            <item index="47" class="java.lang.String" itemvalue="future" />
+            <item index="48" class="java.lang.String" itemvalue="Pillow" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

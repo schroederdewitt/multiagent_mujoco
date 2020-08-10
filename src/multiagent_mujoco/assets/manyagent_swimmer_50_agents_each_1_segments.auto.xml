@@ -1,0 +1,329 @@
+<mujoco model="swimmer">
+  <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+  <option collision="predefined" density="4000" integrator="RK4" timestep="0.01" viscosity="0.1"/>
+  <default>
+    <geom conaffinity="1" condim="1" contype="1" material="geom" rgba="0.8 0.6 .4 1"/>
+    <joint armature='0.1'  />
+  </default>
+  <asset>
+    <texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100"/>
+    <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+    <texture builtin="checker" height="100" name="texplane" rgb1="0 0 0" rgb2="0.8 0.8 0.8" type="2d" width="100"/>
+    <material name="MatPlane" reflectance="0.5" shininess="1" specular="1" texrepeat="30 30" texture="texplane"/>
+    <material name="geom" texture="texgeom" texuniform="true"/>
+  </asset>
+  <worldbody>
+    <light cutoff="100" diffuse="1 1 1" dir="-0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1"/>
+    <geom conaffinity="1" condim="3" material="MatPlane" name="floor" pos="0 0 -0.1" rgba="0.8 0.9 0.8 1" size="40 40 0.1" type="plane"/>
+    <!--  ================= SWIMMER ================= /-->
+    <body name="torso" pos="0 0 0">
+      <geom density="1000" fromto="1.5 0 0 0.5 0 0" size="0.1" type="capsule"/>
+      <joint axis="1 0 0" name="slider1" pos="0 0 0" type="slide"/>
+      <joint axis="0 1 0" name="slider2" pos="0 0 0" type="slide"/>
+      <joint axis="0 0 1" name="rot" pos="0 0 0" type="hinge"/>
+      <body name="mid0" pos="0.5 0 0">
+        <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+        <joint axis="0 0 1" limited="true" name="rot0" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid1" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot1" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid2" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot2" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid3" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot3" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid4" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot4" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid5" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot5" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid6" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot6" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid7" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot7" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid8" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot8" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid9" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot9" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid10" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot10" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid11" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot11" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid12" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot12" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid13" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot13" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid14" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot14" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid15" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot15" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid16" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot16" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid17" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot17" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid18" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot18" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid19" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot19" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid20" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot20" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid21" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot21" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid22" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot22" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid23" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot23" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid24" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot24" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid25" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot25" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid26" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot26" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid27" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot27" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid28" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot28" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid29" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot29" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid30" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot30" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid31" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot31" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid32" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot32" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid33" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot33" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid34" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot34" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid35" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot35" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid36" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot36" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid37" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot37" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid38" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot38" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid39" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot39" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid40" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot40" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid41" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot41" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid42" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot42" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid43" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot43" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid44" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot44" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid45" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot45" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid46" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot46" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid47" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 1" limited="true" name="rot47" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="mid48" pos="-1 0 0">
+          <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+          <joint axis="0 0 -1" limited="true" name="rot48" pos="0 0 0" range="-100 100" type="hinge"/>
+        
+        <body name="back" pos="-1 0 0">
+            <geom density="1000" fromto="0 0 0 -1 0 0" size="0.1" type="capsule"/>
+            <joint axis="0 0 1" limited="true" name="rot49" pos="0 0 0" range="-100 100" type="hinge"/>
+          </body>
+        </body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot0"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot1"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot2"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot3"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot4"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot5"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot6"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot7"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot8"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot9"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot10"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot11"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot12"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot13"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot14"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot15"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot16"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot17"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot18"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot19"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot20"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot21"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot22"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot23"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot24"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot25"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot26"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot27"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot28"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot29"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot30"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot31"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot32"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot33"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot34"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot35"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot36"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot37"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot38"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot39"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot40"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot41"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot42"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot43"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot44"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot45"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot46"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot47"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot48"/>
+	 <motor ctrllimited="true" ctrlrange="-1 1" gear="150.0" joint="rot49"/>
+
+  </actuator>
+</mujoco>
