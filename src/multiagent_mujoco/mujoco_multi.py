@@ -46,7 +46,7 @@ class MujocoMulti(MultiAgentEnv):
         if self.agent_obsk is not None:
             self.k_categories_label = kwargs["env_args"].get("k_categories")
             if self.k_categories_label is None:
-                if self.scenario in ["Ant-v2"]:
+                if self.scenario in ["Ant-v2", "manyagent_ant"]:
                     self.k_categories_label = "qpos,qvel,cfrc_ext|qpos"
                 elif self.scenario in ["Humanoid-v2", "HumanoidStandup-v2"]:
                     self.k_categories_label = "qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator|qpos"

@@ -1,5 +1,6 @@
 import itertools
 import numpy as np
+from copy import deepcopy
 
 class Node():
     def __init__(self, label, qpos_ids, qvel_ids, act_ids, body_fn=None, bodies=None, extra_obs=None, tendons=None):
@@ -465,4 +466,75 @@ def get_parts_and_edges(label, partitioning):
         globals = {}
 
         parts = [tuple(joints[i * n_segs_per_agents:(i + 1) * n_segs_per_agents]) for i in range(n_agents)]
+        return parts, edges, globals
+
+    elif label in ["manyagent_ant"]: # TODO: FIX!
+
+        # Generate asset file
+        try:
+            n_agents = int(partitioning.split("x")[0])
+            n_segs_per_agents = int(partitioning.split("x")[1])
+            n_segs = n_agents * n_segs_per_agents
+        except Exception as e:
+            raise Exception("UNKNOWN partitioning config: {}".format(partitioning))
+
+
+        # # define Mujoco graph
+        # torso = 1
+        # front_left_leg = 2
+        # aux_1 = 3
+        # ankle_1 = 4
+        # right_back_leg = 11
+        # aux_4 = 12
+        # ankle_4 = 13
+        #
+        # off = -4*(n_segs-1)
+        # hip1 = Node("hip1", -4-off, -4-off, 2, bodies=[torso, front_left_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist()) #
+        # ankle1 = Node("ankle1", -3-off, -3-off, 3, bodies=[front_left_leg, aux_1, ankle_1], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+        # hip4 = Node("hip4", -2-off, -2-off, 0, bodies=[torso, right_back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+        # ankle4 = Node("ankle4", -1-off, -1-off, 1, bodies=[right_back_leg, aux_4, ankle_4], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())#,
+        #
+        # edges = [HyperEdge(ankle4, hip4),
+        #          HyperEdge(ankle1, hip1),
+        #          HyperEdge(hip4, hip1),
+        #          ]
+
+        edges = []
+        joints = []
+        for si in range(n_segs):
+
+            torso = 1 + si*7
+            front_right_leg = 2 + si*7
+            aux1 = 3 + si*7
+            ankle1 = 4 + si*7
+            back_leg = 5 + si*7
+            aux2 = 6 + si*7
+            ankle2 = 7 + si*7
+
+            off = -4 * (n_segs - 1 - si)
+            hip1n = Node("hip1_{:d}".format(si), -4-off, -4-off, 2+4*si, bodies=[torso, front_right_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())
+            ankle1n = Node("ankle1_{:d}".format(si), -3-off, -3-off, 3+4*si, bodies=[front_right_leg, aux1, ankle1], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())
+            hip2n = Node("hip2_{:d}".format(si), -2-off, -2-off, 0+4*si, bodies=[torso, back_leg], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())
+            ankle2n = Node("ankle2_{:d}".format(si), -1-off, -1-off, 1+4*si, bodies=[back_leg, aux2, ankle2], body_fn=lambda _id, x:np.clip(x, -1, 1).tolist())
+
+            edges += [HyperEdge(ankle1n, hip1n),
+                      HyperEdge(ankle2n, hip2n),
+                      HyperEdge(hip1n, hip2n)]
+            if si:
+                edges += [HyperEdge(hip1m, hip2m, hip1n, hip2n)]
+
+            hip1m = deepcopy(hip1n)
+            hip2m = deepcopy(hip2n)
+            joints.append([hip1n,
+                           ankle1n,
+                           hip2n,
+                           ankle2n])
+
+        free_joint = Node("free", 0, 0, -1, extra_obs={"qpos": lambda env: env.sim.data.qpos[:7],
+                                                       "qvel": lambda env: env.sim.data.qvel[:6],
+                                                       "cfrc_ext": lambda env: np.clip(env.sim.data.cfrc_ext[0:1], -1, 1)})
+        globals = {"joints": [free_joint]}
+
+        parts =  [[x for sublist in joints[i * n_segs_per_agents:(i + 1) * n_segs_per_agents] for x in sublist] for i in range(n_agents)]
+
         return parts, edges, globals

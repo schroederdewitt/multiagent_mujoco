@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8d9951-0206-49b0-b2a7-427c017b16d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,12 +12,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="67" />
-    <option name="y" value="55" />
-    <option name="width" value="1843" />
-    <option name="height" value="879" />
-  </component>
   <component name="ProjectId" id="1cPm6TCQIav94k8TK5U8i52h4Sx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +21,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pymarl-bei" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -46,6 +39,7 @@
       <workItem from="1579000317878" duration="611000" />
       <workItem from="1579092952173" duration="102000" />
       <workItem from="1590438427675" duration="9000" />
+      <workItem from="1597079541219" duration="639000" />
     </task>
     <servers />
   </component>
@@ -53,9 +47,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590438434570">
-      <screen x="67" y="27" width="3773" height="1053" />
+    <state x="195" y="1238" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597079568866">
+      <screen x="0" y="1050" width="1920" height="1080" />
     </state>
+    <state x="195" y="1238" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1613.1023/0.1050.1920.1080@0.1050.1920.1080" timestamp="1597079568866" />
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.3773.1053@67.27.3773.1053" timestamp="1590438434570" />
+    <state x="743" y="1347" width="424" height="484" key="FileChooserDialogImpl" timestamp="1597079578497">
+      <screen x="0" y="1050" width="1920" height="1080" />
+    </state>
+    <state x="743" y="1347" width="424" height="484" key="FileChooserDialogImpl/67.27.1613.1023/0.1050.1920.1080@0.1050.1920.1080" timestamp="1597079578497" />
   </component>
 </project>
