@@ -15,9 +15,9 @@ class ManyAgentSwimmerEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         asset_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets',
                                                   'manyagent_swimmer_{}_agents_each_{}_segments.auto.xml'.format(n_agents,
                                                                                                                  n_segs_per_agents))
-        if not os.path.exists(asset_path):
-            print("Auto-Generating Manyagent Swimmer asset with {} segments at {}.".format(n_segs, asset_path))
-            self._generate_asset(n_segs=n_segs, asset_path=asset_path)
+        # if not os.path.exists(asset_path):
+        print("Auto-Generating Manyagent Swimmer asset with {} segments at {}.".format(n_segs, asset_path))
+        self._generate_asset(n_segs=n_segs, asset_path=asset_path)
 
         #asset_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets',git p
         #                          'manyagent_swimmer.xml')
@@ -57,7 +57,7 @@ class ManyAgentSwimmerEnv(mujoco_env.MujocoEnv, utils.EzPickle):
             actuator_str += actuator_str_template.format(i)
 
         rt = t.render(body=body_str, actuators=actuator_str)
-        with open(asset_path, "w+") as f:
+        with open(asset_path, "w") as f:
             f.write(rt)
         pass
 
