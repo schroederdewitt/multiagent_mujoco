@@ -32,7 +32,7 @@ class ManyAgentAntEnv(mujoco_env.MujocoEnv, utils.EzPickle):
             t = Template(f.read())
         body_str_template = """
         <body name="torso_{:d}" pos="-1 0 0">
-           <joint axis="0 1 0" name="nnn_{:d}" pos="0.0 0.0 0.0" range="-1 1" type="hinge"/>
+           <!--<joint axis="0 1 0" name="nnn_{:d}" pos="0.0 0.0 0.0" range="-1 1" type="hinge"/>-->
             <geom density="100" fromto="1 0 0 0 0 0" size="0.1" type="capsule"/>
             <body name="front_right_leg_{:d}" pos="0 0 0">
               <geom fromto="0.0 0.0 0.0 0.0 0.2 0.0" name="aux1_geom_{:d}" size="0.08" type="capsule"/>
