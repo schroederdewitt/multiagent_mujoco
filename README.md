@@ -183,6 +183,25 @@ env_args.scenario="Walker2d-v2"
 env_args.agent_conf="2x3
 env_args.agent_obsk=1
 ```
+
+
+### Manyagent Swimmer
+
+```python
+env_args.scenario="manyagent_swimmer"
+env_args.agent_conf="2x3
+env_args.agent_obsk=1
+```
+
+
+### Manyagent A
+
+```python
+env_args.scenario="manyagent_a"
+env_args.agent_conf="2x3
+env_args.agent_obsk=1
+```
+
 ### Coupled HalfCheetah (NEW!)
 
 ```python
