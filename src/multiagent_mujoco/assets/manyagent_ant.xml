@@ -1,4 +1,5 @@
 <mujoco model="ant">
+  <size nconmax="200"/>
   <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
   <option integrator="RK4" timestep="0.01"/>
   <custom>
