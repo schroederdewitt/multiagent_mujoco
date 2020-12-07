@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
 Tasks can be trivially extended by adding entries in src/multiagent_mujoco/obsk.py.
 
-<img src="https://github.com/schroederdewitt/multiagent_mujoco/blob/master/docs/images/mamujoco.png" width="900" height="384">
+<img src="https://github.com/schroederdewitt/multiagent_mujoco/blob/master/docs/images/mamujoco.jpg" width="900" height="384">
 
 ## Task configuration
 
