@@ -52,7 +52,7 @@ class MujocoMulti(MultiAgentEnv):
                     self.k_categories_label = "qpos,qvel,cfrc_ext,cvel,cinert,qfrc_actuator|qpos"
                 elif self.scenario in ["Reacher-v2"]:
                     self.k_categories_label = "qpos,qvel,fingertip_dist|qpos"
-                if self.scenario in ["coupled_half_cheetah"]:
+                elif self.scenario in ["coupled_half_cheetah"]:
                     self.k_categories_label = "qpos,qvel,ten_J,ten_length,ten_velocity|"
                 else:
                     self.k_categories_label = "qpos,qvel|qpos"
