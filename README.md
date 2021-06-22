@@ -194,10 +194,10 @@ env_args.agent_obsk=1
 ```
 
 
-### Manyagent A
+### Manyagent Ant
 
 ```python
-env_args.scenario="manyagent_a"
+env_args.scenario="manyagent_ant"
 env_args.agent_conf="2x3
 env_args.agent_obsk=1
 ```
