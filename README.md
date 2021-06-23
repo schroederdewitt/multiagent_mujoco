@@ -180,7 +180,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="Walker2d-v2"
-env_args.agent_conf="2x3
+env_args.agent_conf="2x3"
 env_args.agent_obsk=1
 ```
 
@@ -189,7 +189,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="manyagent_swimmer"
-env_args.agent_conf="2x3
+env_args.agent_conf="10x2"
 env_args.agent_obsk=1
 ```
 
@@ -198,7 +198,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="manyagent_ant"
-env_args.agent_conf="2x3
+env_args.agent_conf="2x3"
 env_args.agent_obsk=1
 ```
 
@@ -206,7 +206,7 @@ env_args.agent_obsk=1
 
 ```python
 env_args.scenario="coupled_half_cheetah"
-env_args.agent_conf="2x3
+env_args.agent_conf="1p1"
 env_args.agent_obsk=1
 ```
 
