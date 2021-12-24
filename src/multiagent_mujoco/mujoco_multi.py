@@ -183,7 +183,7 @@ class MujocoMulti(MultiAgentEnv):
         return self.get_obs()
 
     def render(self, **kwargs):
-        self.env.render(**kwargs)
+        return self.env.render(**kwargs)
 
     def close(self):
         raise NotImplementedError
