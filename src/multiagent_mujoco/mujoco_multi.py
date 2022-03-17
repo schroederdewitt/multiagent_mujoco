@@ -107,9 +107,18 @@ class MujocoMulti(MultiAgentEnv):
 
     def step(self, actions):
 
-        # need to remove dummy actions that arise due to unequal action vector sizes across agents
-        flat_actions = np.concatenate([actions[i][:self.action_space[i].low.shape[0]] for i in range(self.n_agents)])
-        obs_n, reward_n, done_n, info_n = self.wrapped_env.step(flat_actions)
+        # we need to map actions back into MuJoCo action space
+        env_actions = np.zeros((sum([self.action_space[i].low.shape[0] for i in range(self.n_agents)]),)) + np.nan
+        for a, partition in enumerate(self.agent_partitions):
+            for i, body_part in enumerate(partition):
+                if env_actions[body_part.act_ids] == env_actions[body_part.act_ids]:
+                    raise Exception("FATAL: At least one env action is doubly defined!")
+                env_actions[body_part.act_ids] = actions[a][i]
+
+        if np.isnan(env_actions).any():
+            raise Exception("FATAL: At least one env action is undefined!")
+
+        obs_n, reward_n, done_n, info_n = self.wrapped_env.step(env_actions)
         self.steps += 1
 
         info = {}
