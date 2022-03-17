@@ -1,4 +1,4 @@
-from src.multiagent_mujoco.mujoco_multi import MujocoMulti
+from multiagent_mujoco.mujoco_multi import MujocoMulti
 import numpy as np
 import time
 

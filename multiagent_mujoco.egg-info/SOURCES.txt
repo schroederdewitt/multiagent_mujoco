@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+multiagent_mujoco.egg-info/PKG-INFO
+multiagent_mujoco.egg-info/SOURCES.txt
+multiagent_mujoco.egg-info/dependency_links.txt
+multiagent_mujoco.egg-info/requires.txt
+multiagent_mujoco.egg-info/top_level.txt

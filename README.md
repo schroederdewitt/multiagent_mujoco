@@ -17,13 +17,16 @@ Described in the paper [Deep Multi-Agent Reinforcement Learning for Decentralize
 
 # Installation
 
-**Note: You require OpenAI Gym Version 10.8.0 and Mujoco 2.0**
+**Note: You require OpenAI Gym Version 0.10.8 and Mujoco 2.1**
 
-Simply clone this repository and put ./src on your PYTHONPATH.
+Simply clone this repository and install this environment in your virtual environment as follows by calling the following from the source root level: 
+
+```pip3 install -e .```
+
 To render, please also set the following environment variables:
 
 ```
-LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco200/bin;
+LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco210/bin;
 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
 ```
 

@@ -30,10 +30,10 @@ class MujocoMulti(MultiAgentEnv):
 
     def __init__(self, batch_size=None, **kwargs):
         super().__init__(batch_size, **kwargs)
-        self.scenario = kwargs["env_args"]["scenario"] # e.g. Ant-v2
-        self.agent_conf = kwargs["env_args"]["agent_conf"] # e.g. '2x3'
+        self.scenario = kwargs["env_args"]["scenario"]  # e.g. Ant-v2
+        self.agent_conf = kwargs["env_args"]["agent_conf"]  # e.g. '2x3'
 
-        self.agent_partitions, self.mujoco_edges, self.mujoco_globals  = get_parts_and_edges(self.scenario,
+        self.agent_partitions, self.mujoco_edges, self.mujoco_globals = get_parts_and_edges(self.scenario,
                                                                                              self.agent_conf)
 
         self.n_agents = len(self.agent_partitions)
