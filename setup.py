@@ -4,7 +4,7 @@ from __future__ import print_function
 
 from setuptools import setup
 
-description = """MAMUJOCO - Multi-Agent MuJoCo
+description = """MAMuJoCo - Multi-Agent MuJoCo
 
 Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco Gym environments.
 Described in the paper Deep Multi-Agent Reinforcement Learning for Decentralized Continuous Cooperative Control 
@@ -26,7 +26,7 @@ extras_deps = {
 setup(
       name="MAMujoco",
       version="2.0.1",
-      description="MAMUJOCO - Multi-Agent MuJoCo.",
+      description="MAMuJoCo - Multi-Agent MuJoCo.",
       long_description=description,
       author="Christian Schroeder de Witt",
       author_email="cs@robots.ox.ac.uk",
