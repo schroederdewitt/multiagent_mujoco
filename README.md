@@ -1,6 +1,7 @@
 ```diff
-+ New Addition: Multi-Agent Mujoco now supports Scenarios with Coupled Robots (using Tendons). 
-+ Check out instructions below.
++ New Version: Multi-Agent MuJoCo is now at Version 2.0.1. Changes and added features are as follows:
++ Fixed a bug in action mapping in the step function (thanks go to Paul Barde). This fixes several unphysical mappings found in previous versions.
++ I am in the process of establishing comprehensive benchmarks of all Multi-Agent MuJoCO scenarios across a variety of RL algorithms. 
 ```
 
 ```diff
