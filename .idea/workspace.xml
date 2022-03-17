@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8d9951-0206-49b0-b2a7-427c017b16d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/multiagent_mujoco.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/multiagent_mujoco.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/coupled_half_cheetah.xml" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/coupled_half_cheetah.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_ant.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant.xml.template" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_ant.xml.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant__stage1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_ant__stage1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer.xml.template" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_swimmer.xml.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer__bckp2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_swimmer__bckp2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer_bckp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/assets/manyagent_swimmer_bckp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/coupled_half_cheetah.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/coupled_half_cheetah.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/example.py" beforeDir="false" afterPath="$PROJECT_DIR$/example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/manyagent_ant.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/manyagent_ant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/manyagent_swimmer.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/manyagent_swimmer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/mujoco_multi.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/mujoco_multi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/multiagentenv.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/multiagentenv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/obsk.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiagent_mujoco/obsk.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,14 +89,25 @@
       <workItem from="1579092952173" duration="102000" />
       <workItem from="1590438427675" duration="9000" />
       <workItem from="1597079541219" duration="639000" />
-      <workItem from="1647344157800" duration="10802000" />
+      <workItem from="1647344157800" duration="14161000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/example.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/mamujoco_fix$example.coverage" NAME="example Coverage Results" MODIFIED="1647539029609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/mamujoco_fix$example.coverage" NAME="example Coverage Results" MODIFIED="1647546379575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
   </component>
 </project>
