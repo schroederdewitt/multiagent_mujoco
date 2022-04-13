@@ -3,6 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="fc8d9951-0206-49b0-b2a7-427c017b16d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/coupled_half_cheetah.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant.xml.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_ant__stage1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer.xml.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer__bckp2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/assets/manyagent_swimmer_bckp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/coupled_half_cheetah.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/manyagent_ant.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/manyagent_swimmer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/mujoco_multi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/multiagentenv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiagent_mujoco/obsk.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,20 +29,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1cPm6TCQIav94k8TK5U8i52h4Sx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pymarl-bei" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -40,11 +62,12 @@
       <workItem from="1579092952173" duration="102000" />
       <workItem from="1590438427675" duration="9000" />
       <workItem from="1597079541219" duration="639000" />
+      <workItem from="1649854279827" duration="1028000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="195" y="1238" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597079568866">

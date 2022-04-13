@@ -1,6 +1,12 @@
 ```diff
-+ New Addition: Multi-Agent Mujoco now supports Scenarios with Coupled Robots (using Tendons). 
-+ Check out instructions below.
+-  PLEASE NOTE: To use the legacy version of Multiagent Mujoco please check out tag v1.0
+```
+
+```diff
++ New Version: Multi-Agent MuJoCo is now at Version 1.1.0. Changes and added features are as follows:
++ Fixed a bug in action mapping in the step function (thanks go to Paul Barde). This fixes several unphysical mappings found in previous versions.
++ Multi-Agent MuJoCo can now be installed as a PIP package.
++ I am in the process of establishing comprehensive benchmarks of all Multi-Agent MuJoCO scenarios across a variety of RL algorithms. 
 ```
 
 ```diff
@@ -17,20 +23,20 @@ Described in the paper [Deep Multi-Agent Reinforcement Learning for Decentralize
 
 # Installation
 
-**Note: You require OpenAI Gym Version 0.10.8 and Mujoco 2.0**
+**Note: You require OpenAI Gym Version 0.10.8 and Mujoco 2.1**
 
 Simply clone this repository and put ./src on your PYTHONPATH.
 To render, please also set the following environment variables:
 
 ```
-LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco200/bin;
+LD_LIBRARY_PATH=${HOME}/.mujoco/mujoco210/bin;
 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so
 ```
 
 # Example
 
 ```python
-from src.multiagent_mujoco.mujoco_multi import MujocoMulti
+from multiagent_mujoco.mujoco_multi import MujocoMulti
 import numpy as np
 import time
 
