@@ -1,20 +1,9 @@
-```diff
--  PLEASE NOTE: To use the legacy version of Multiagent Mujoco please check out tag v1.0
-```
+# Maintained Fork
 
-```diff
-+ New Version: Multi-Agent MuJoCo is now at Version 1.1.0. Changes and added features are as follows:
-+ Fixed a bug in action mapping in the step function (thanks go to Paul Barde). This fixes several unphysical mappings found in previous versions.
-+ Multi-Agent MuJoCo can now be installed as a PIP package.
-+ I am in the process of establishing comprehensive benchmarks of all Multi-Agent MuJoCO scenarios across a variety of RL algorithms. 
-```
-
-```diff
--  Please contact Christian Schroeder de Witt at cs@robots.ox.ac.uk for any questions
--  Issues? Please file them here. Thanks :)
-```
+The maintained version of these environments, which include numerous fixes, comprehensive documentation, support for installation via pip, and support for current versions of Python are available in Gymnasium Robotics (https://github.com/Farama-Foundation/Gymnasium-Robotics, https://robotics.farama.org/)
 
 # Multi-Agent Mujoco
+
 Benchmark for Continuous Multi-Agent Robotic Control, based on OpenAI's Mujoco Gym environments.
 
 <img src="https://github.com/schroederdewitt/multiagent_mujoco/blob/master/docs/images/mamujoco.jpg" width="900" height="384">
@@ -216,7 +205,7 @@ env_args.agent_conf="1p1"
 env_args.agent_obsk=1
 ```
 
-```CoupledHalfCheetah``` features two separate HalfCheetah agents coupled by an elastic tendon. You can add more tendons or novel coupled scenarios by 
+```CoupledHalfCheetah``` features two separate HalfCheetah agents coupled by an elastic tendon. You can add more tendons or novel coupled scenarios by
 
 1. Creating a new Gym environment to define the reward function of the coupled scenario (consult ```coupled_half_cheetah.py```)
 2. Create a new Mujoco environment XML file to insert agents and tendons (see ```assets/coupled_half_cheetah.xml```)
